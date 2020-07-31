@@ -1,9 +1,26 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Linq;
+using System.Drawing;
+using System.Windows.Forms;
+using static TicTacToe_WF.Player;
+using static TicTacToe_WF.VirtualBoard;
+using System.Media;
 
 namespace TicTacToe_WF
 {
     partial class Form1
     {
+        public static int turn = 0;
+        public static bool[] buttons = new bool[9]
+        {
+            false, false, false, false, false, false, false, false, false
+        };
+        public static Actions actions = new Actions();
+        private static Image image1 = Image.FromFile("X.png");
+        private static Image image2 = Image.FromFile("O.png");
+        public static Player player1 = new Player(image1, 0, false);
+        public static Player player2 = new Player(image2, 0, false);
+
         /// <summary>
         ///  Required designer variable.
         /// </summary>
@@ -28,7 +45,7 @@ namespace TicTacToe_WF
         ///  Required method for Designer support - do not modify
         ///  the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        public void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -57,7 +74,6 @@ namespace TicTacToe_WF
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Tag = "topLeftBtn";
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // startButton
             // 
@@ -85,7 +101,7 @@ namespace TicTacToe_WF
             this.topLeftBtn.TabIndex = 2;
             this.topLeftBtn.Tag = "topLeftBtn";
             this.topLeftBtn.UseVisualStyleBackColor = false;
-            this.topLeftBtn.Click += new System.EventHandler(this.button1_Click);
+            this.topLeftBtn.Click += new System.EventHandler(this.topLeftBtn_Click);
             // 
             // topMiddleBtn
             // 
@@ -128,7 +144,6 @@ namespace TicTacToe_WF
             this.bottomRightBtn.Name = "bottomRightBtn";
             this.bottomRightBtn.Size = new System.Drawing.Size(168, 117);
             this.bottomRightBtn.TabIndex = 7;
-            this.bottomRightBtn.Text = "button3";
             this.bottomRightBtn.UseVisualStyleBackColor = false;
             this.bottomRightBtn.Click += new System.EventHandler(this.bottomRightBtn_Click);
             // 
@@ -140,7 +155,6 @@ namespace TicTacToe_WF
             this.bottomMiddleBtn.Name = "bottomMiddleBtn";
             this.bottomMiddleBtn.Size = new System.Drawing.Size(313, 117);
             this.bottomMiddleBtn.TabIndex = 8;
-            this.bottomMiddleBtn.Text = "button4";
             this.bottomMiddleBtn.UseVisualStyleBackColor = false;
             this.bottomMiddleBtn.Click += new System.EventHandler(this.bottomMiddleBtn_Click);
             // 
@@ -152,7 +166,6 @@ namespace TicTacToe_WF
             this.centerBtn.Name = "centerBtn";
             this.centerBtn.Size = new System.Drawing.Size(313, 154);
             this.centerBtn.TabIndex = 9;
-            this.centerBtn.Text = "button5";
             this.centerBtn.UseVisualStyleBackColor = false;
             this.centerBtn.Click += new System.EventHandler(this.centerBtn_Click);
             // 
@@ -164,7 +177,6 @@ namespace TicTacToe_WF
             this.middleLeftBtn.Name = "middleLeftBtn";
             this.middleLeftBtn.Size = new System.Drawing.Size(155, 154);
             this.middleLeftBtn.TabIndex = 10;
-            this.middleLeftBtn.Text = "button6";
             this.middleLeftBtn.UseVisualStyleBackColor = false;
             this.middleLeftBtn.Click += new System.EventHandler(this.middleLeftBtn_Click);
             // 
@@ -208,17 +220,559 @@ namespace TicTacToe_WF
 
         }
 
+        private void bottomRightBtn_Click(object sender, EventArgs e)
+        {
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Windows\Media\chimes.wav");
+            simpleSound.Play();
+            if (!vBoard[0, 2, 0])
+            {
+                string str = "bottomRightBtn";
+
+                buttons[8] = true;
+
+                bottomRightBtn.BackgroundImage = Program.ExecuteAction(str);
+            }
+            else
+            {
+                MessageBox.Show("Space occupied!");
+            }
+        }
+
+        private void bottomMiddleBtn_Click(object sender, EventArgs e)
+        {
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Windows\Media\chimes.wav");
+            simpleSound.Play();
+            if (!vBoard[0, 1, 0])
+            {
+                string str = "bottomMiddleBtn";
+
+                buttons[7] = true;
+
+                bottomMiddleBtn.BackgroundImageLayout = ImageLayout.Center;
+                bottomMiddleBtn.BackgroundImage = Program.ExecuteAction(str);
+            }
+            else
+            {
+                MessageBox.Show("Space occupied!");
+            }
+        }
+
+        public void bottomLeftBtn_Click(object sender, EventArgs e)
+        {
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Windows\Media\chimes.wav");
+            simpleSound.Play();
+            //var v = vBoard[0, 0, 0];
+            if (!vBoard[0, 0, 0])
+            {
+                string str = "bottomLeftBtn";
+
+                buttons[6] = true;
+
+                bottomLeftBtn.BackgroundImage = Program.ExecuteAction(str);
+            }
+            else
+            {
+                MessageBox.Show("Space occupied!");
+            }
+        }
+
+        private void middleRightBtn_Click(object sender, EventArgs e)
+        {
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Windows\Media\chimes.wav");
+            simpleSound.Play();
+            if (!vBoard[1, 2, 0])
+            {
+                string str = "middleRightBtn";
+
+                buttons[5] = true;
+
+                middleRightBtn.BackgroundImage = Program.ExecuteAction(str);
+            }
+            else
+            {
+                MessageBox.Show("Space occupied!");
+            }
+        }
+
+        private void centerBtn_Click(object sender, EventArgs e)
+        {
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Windows\Media\chimes.wav");
+            simpleSound.Play();
+            if (!vBoard[1, 1, 0])
+            {
+                string str = "centerBtn";
+
+                buttons[4] = true;
+
+                centerBtn.BackgroundImageLayout = ImageLayout.Center;
+                centerBtn.BackgroundImage = Program.ExecuteAction(str);
+            }
+            else
+            {
+                MessageBox.Show("Space occupied!");
+            }
+        }
+
+        private void middleLeftBtn_Click(object sender, EventArgs e)
+        {
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Windows\Media\chimes.wav");
+            simpleSound.Play();
+            if (!vBoard[1, 0, 0])
+            {
+                string str = "middleLeftBtn";
+
+                buttons[3] = true;
+
+                middleLeftBtn.BackgroundImage = Program.ExecuteAction(str);
+            }
+            else
+            {
+                MessageBox.Show("Space occupied!");
+            }
+        }
+
+        private void topRightBtn_Click(object sender, EventArgs e)
+        {
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Windows\Media\chimes.wav");
+            simpleSound.Play();
+            if (!vBoard[2, 2, 0])
+            {
+                string str = "topRightBtn";
+
+                buttons[2] = true;
+
+                topRightBtn.BackgroundImage = Program.ExecuteAction(str);
+            }
+            else
+            {
+                MessageBox.Show("Space occupied!");
+            }
+        }
+
+        private void topMiddleBtn_Click(object sender, EventArgs e)
+        {
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Windows\Media\chimes.wav");
+            simpleSound.Play();
+            if (!vBoard[2, 1, 0])
+            {
+                string str = "topMiddleBtn";
+
+                buttons[1] = true;
+
+                topMiddleBtn.BackgroundImageLayout = ImageLayout.Center;
+                topMiddleBtn.BackgroundImage = Program.ExecuteAction(str);
+            }
+            else
+            {
+                MessageBox.Show("Space occupied!");
+            }
+        }
+
+        private void topLeftBtn_Click(object sender, EventArgs e)
+        {
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Windows\Media\chimes.wav");
+            simpleSound.Play();
+
+
+            if (!vBoard[2, 0, 0])
+            {
+                string str = "topLeftBtn";
+
+                buttons[0] = true;
+
+                topLeftBtn.BackgroundImage = Program.ExecuteAction(str);
+            }
+            else
+            {
+                MessageBox.Show("Space occupied!");
+            }
+        }
+
+        public static void EndConditon(Player p1, Player p2)
+        {
+            bool bitX = XCounter(p1);
+            bool bitO = OCounter(p2);
+
+            if (bitX)
+            {
+                MessageBox.Show("Player One Wins!!!", "Game Over", MessageBoxButtons.OK);
+                Environment.Exit(0);
+            }
+
+            if (bitO)
+            {
+                MessageBox.Show("Player Two Wins!!!", "Game Over", MessageBoxButtons.OK);
+                Environment.Exit(0);
+            }
+
+            if (buttons.All(a => a == true) && !bitX && !bitO)
+            {
+                MessageBox.Show("DRAW!", "Game Over", MessageBoxButtons.OK);
+                Environment.Exit(0);
+            }
+            turn++;
+        }
+
+        public static bool XCounter(Player player1)
+        {
+            // Virtical left win
+
+            //var x = vBoard[0, 0, 1];
+            //var x1 = vBoard[1, 0, 1];
+            //var x2 = vBoard[2, 0, 1];
+            if (vBoard[0,0,1] == 'X' && vBoard[1,0,1] == 'X' && vBoard[2,0,1] == 'X')
+            {
+                return true;
+            }
+
+            // Virtical mid win
+
+            //var x = vBoard[0, 0, 1];
+            //var x1 = vBoard[1, 0, 1];
+            //var x2 = vBoard[2, 0, 1];
+            if (vBoard[0, 1, 1] == 'X' && vBoard[1, 1, 1] == 'X' && vBoard[2, 1, 1] == 'X')
+            {
+                return true;
+            }
+
+            // Virtical right win
+
+            //var x = vBoard[0, 0, 1];
+            //var x1 = vBoard[1, 0, 1];
+            //var x2 = vBoard[2, 0, 1];
+            if (vBoard[0, 2, 1] == 'X' && vBoard[1, 2, 1] == 'X' && vBoard[2, 2, 1] == 'X')
+            {
+                return true;
+            }
+
+            // Horizontal top win
+
+            //var x = vBoard[0, 0, 1];
+            //var x1 = vBoard[1, 0, 1];
+            //var x2 = vBoard[2, 0, 1];
+            if (vBoard[2, 0, 1] == 'X' && vBoard[2, 1, 1] == 'X' && vBoard[2, 2, 1] == 'X')
+            {
+                return true;
+            }
+
+            // Horizontal mid win
+
+            //var x = vBoard[1, 0, 1];
+            //var x1 = vBoard[1, 1, 1];
+            //var x2 = vBoard[1, 2, 1];
+            if (vBoard[1, 0, 1] == 'X' && vBoard[1, 1, 1] == 'X' && vBoard[1, 2, 1] == 'X')
+            {
+                return true;
+            }
+
+            // Horizontal bottom win
+
+            //var x = vBoard[1, 0, 1];
+            //var x1 = vBoard[1, 1, 1];
+            //var x2 = vBoard[1, 2, 1];
+            if (vBoard[0, 0, 1] == 'X' && vBoard[0, 1, 1] == 'X' && vBoard[0, 2, 1] == 'X')
+            {
+                return true;
+            }
+
+            // First Diagonal win
+
+            //var x = vBoard[1, 0, 1];
+            //var x1 = vBoard[1, 1, 1];
+            //var x2 = vBoard[1, 2, 1];
+            if (vBoard[2, 0, 1] == 'X' && vBoard[1, 1, 1] == 'X' && vBoard[0, 2, 1] == 'X')
+            {
+                return true;
+            }
+
+            // Second Diagonal win
+
+            //var x = vBoard[1, 0, 1];
+            //var x1 = vBoard[1, 1, 1];
+            //var x2 = vBoard[1, 2, 1];
+            if (vBoard[0, 0, 1] == 'X' && vBoard[1, 1, 1] == 'X' && vBoard[2, 2, 1] == 'X')
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static bool OCounter(Player player2)
+        {
+            // Virtical left win
+            //var x = vBoard[0, 0, 1];
+            //var x1 = vBoard[1, 0, 1];
+            //var x2 = vBoard[2, 0, 1];
+            if (vBoard[0, 0, 1] == 'O' && vBoard[1, 0, 1] == 'O' && vBoard[2, 0, 1] == 'O')
+            {
+                return true;
+            }
+
+            // Virtical mid win
+
+            //var x = vBoard[0, 0, 1];
+            //var x1 = vBoard[1, 0, 1];
+            //var x2 = vBoard[2, 0, 1];
+            if (vBoard[0, 1, 1] == 'O' && vBoard[1, 1, 1] == 'O' && vBoard[2, 1, 1] == 'O')
+            {
+                return true;
+            }
+
+            // Virtical right win
+
+            //var x = vBoard[0, 0, 1];
+            //var x1 = vBoard[1, 0, 1];
+            //var x2 = vBoard[2, 0, 1];
+            if (vBoard[0, 2, 1] == 'O' && vBoard[1, 2, 1] == 'O' && vBoard[2, 2, 1] == 'O')
+            {
+                return true;
+            }
+
+            // Horizontal top win
+
+            //var x = vBoard[0, 0, 1];
+            //var x1 = vBoard[1, 0, 1];
+            //var x2 = vBoard[2, 0, 1];
+            if (vBoard[2, 0, 1] == 'O' && vBoard[2, 1, 1] == 'O' && vBoard[2, 2, 1] == 'O')
+            {
+                return true;
+            }
+
+            // Horizontal mid win
+
+            //var x = vBoard[1, 0, 1];
+            //var x1 = vBoard[1, 1, 1];
+            //var x2 = vBoard[1, 2, 1];
+            if (vBoard[1, 0, 1] == 'O' && vBoard[1, 1, 1] == 'O' && vBoard[1, 2, 1] == 'O')
+            {
+                return true;
+            }
+
+            // Horizontal bottom win
+
+            //var x = vBoard[1, 0, 1];
+            //var x1 = vBoard[1, 1, 1];
+            //var x2 = vBoard[1, 2, 1];
+            if (vBoard[0, 0, 1] == 'O' && vBoard[0, 1, 1] == 'O' && vBoard[0, 2, 1] == 'O')
+            {
+                return true;
+            }
+
+            // First Diagonal win
+
+            //var x = vBoard[1, 0, 1];
+            //var x1 = vBoard[1, 1, 1];
+            //var x2 = vBoard[1, 2, 1];
+            if (vBoard[2, 0, 1] == 'O' && vBoard[1, 1, 1] == 'O' && vBoard[0, 2, 1] == 'O')
+            {
+                return true;
+            }
+
+            // Second Diagonal win
+
+            //var x = vBoard[1, 0, 1];
+            //var x1 = vBoard[1, 1, 1];
+            //var x2 = vBoard[1, 2, 1];
+            if (vBoard[0, 0, 1] == 'O' && vBoard[1, 1, 1] == 'O' && vBoard[2, 2, 1] == 'O')
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static Image ExecuteAction(string btnPressed)
+        {
+            
+            Image image = Image.FromFile("empty.png");
+            actions.playerTookAction = true;
+            actions.buttonLocationPressed = btnPressed;
+            
+            int lastPlayed = actions.player;
+
+            if (lastPlayed == 1)
+            {
+                actions.player = 2;
+            }
+            else if (lastPlayed == 2)
+            {
+                actions.player = 1;
+            }
+            else if (lastPlayed == 0)
+            {
+                actions.player = 1;
+            }
+
+            switch (btnPressed)
+            {
+                case "bottomLeftBtn":
+                    if (actions.player == 1)
+                    {
+                        vBoard[0, 0, 0] = true;
+                        vBoard[0, 0, 1] = 'X';
+                        image = Image.FromFile("X.png");
+                    }
+                    else if (actions.player == 2)
+                    {
+                        vBoard[0, 0, 0] = true;
+                        vBoard[0, 0, 1] = 'O';
+                        image = Image.FromFile("O.png");
+                    }
+                    break;
+
+                case "middleLeftBtn":
+                    if (actions.player == 1)
+                    {
+                        vBoard[1, 0, 0] = true;
+                        vBoard[1, 0, 1] = 'X';
+                        image = Image.FromFile("X.png");
+                    }
+                    else if (actions.player == 2)
+                    {
+                        vBoard[1, 0, 0] = true;
+                        vBoard[1, 0, 1] = 'O';
+                        image = Image.FromFile("O.png");
+                    }
+                    break;
+
+                case "topLeftBtn":
+                    if (actions.player == 1)
+                    {
+                        vBoard[2, 0, 0] = true;
+                        vBoard[2, 0, 1] = 'X';
+                        image = Image.FromFile("X.png");
+                    }
+                    else if (actions.player == 2)
+                    {
+                        vBoard[2, 0, 0] = true;
+                        vBoard[2, 0, 1] = 'O';
+                        image = Image.FromFile("O.png");
+                    }
+                    break;
+
+                case "topMiddleBtn":
+                    if (actions.player == 1)
+                    {
+                        vBoard[2, 1, 0] = true;
+                        vBoard[2, 1, 1] = 'X';
+                        image = Image.FromFile("X.png");
+                    }
+                    else if (actions.player == 2)
+                    {
+                        vBoard[2, 1, 0] = true;
+                        vBoard[2, 1, 1] = 'O';
+                        image = Image.FromFile("O.png");
+                    }
+                    break;
+                case "centerBtn":
+                    if (actions.player == 1)
+                    {
+                        vBoard[1, 1, 0] = true;
+                        vBoard[1, 1, 1] = 'X';
+                        image = Image.FromFile("X.png");
+                    }
+                    else if (actions.player == 2)
+                    {
+                        vBoard[1, 1, 0] = true;
+                        vBoard[1, 1, 1] = 'O';
+                        image = Image.FromFile("O.png");
+                    }
+                    break;
+                case "bottomMiddleBtn":
+                    if (actions.player == 1)
+                    {
+                        vBoard[0, 1, 0] = true;
+                        vBoard[0, 1, 1] = 'X';
+                        image = Image.FromFile("X.png");
+                    }
+                    else if (actions.player == 2)
+                    {
+                        vBoard[0, 1, 0] = true;
+                        vBoard[0, 1, 1] = 'O';
+                        image = Image.FromFile("O.png");
+                    }
+                    break;
+
+                case "bottomRightBtn":
+                    if (actions.player == 1)
+                    {
+                        vBoard[0, 2, 0] = true;
+                        vBoard[0, 2, 1] = 'X';
+                        image = Image.FromFile("X.png");
+                    }
+                    else if (actions.player == 2)
+                    {
+                        vBoard[0, 2, 0] = true;
+                        vBoard[0, 2, 1] = 'O';
+                        image = Image.FromFile("O.png");
+                    }
+                    break;
+                case "middleRightBtn":
+                    if (actions.player == 1)
+                    {
+                        vBoard[1, 2, 0] = true;
+                        vBoard[1, 2, 1] = 'X';
+                        image = Image.FromFile("X.png");
+                    }
+                    else if (actions.player == 2)
+                    {
+                        vBoard[1, 2, 0] = true;
+                        vBoard[1, 2, 1] = 'O';
+                        image = Image.FromFile("O.png");
+                    }
+                    break;
+                case "topRightBtn":
+                    if (actions.player == 1)
+                    {
+                        vBoard[2, 2, 0] = true;
+                        vBoard[2, 2, 1] = 'X';
+                        image = Image.FromFile("X.png");
+                    }
+                    else if (actions.player == 2)
+                    {
+                        vBoard[2, 2, 0] = true;
+                        vBoard[2, 2, 1] = 'O';
+                        image = Image.FromFile("O.png");
+                    }
+                    break;
+            }
+            EndConditon(Program.player1, Program.player2);
+            return image;
+        }
+
         #endregion
 
-        private Button topLeftBtn;
-        private Button topMiddleBtn;
-        private Button topRightBtn;
-        private Button middleRightBtn;
-        private Button bottomRightBtn;
-        private Button bottomMiddleBtn;
-        private Button centerBtn;
-        private Button middleLeftBtn;
-        private Button bottomLeftBtn;
+        //public Button topLeftBtn { get; set; }
+        //public Button topMiddleBtn { get; set; }
+        //public Button topRightBtn { get; set; }
+        //public Button middleRightBtn { get; set; }
+        //public Button bottomRightBtn { get; set; }
+        //public Button bottomMiddleBtn { get; set; }
+        //public Button centerBtn { get; set; }
+        //public Button middleLeftBtn { get; set; }
+        //public Button bottomLeftBtn { get; set; }
     }
+    public class Player
+    {
+        public bool hasPlayed;
+        public Image image;
+        public int rowCount;
+
+        public Player(Image image, int rowCount, bool hasPlayed)
+        {
+            image = this.image;
+            hasPlayed = this.hasPlayed;
+            rowCount = this.rowCount;
+        }
+
+        public class Actions
+        {
+            public bool playerTookAction = false;
+            public string buttonLocationPressed { get; set; }
+            public int player = 0;
+        }
+    }
+
+
+
 }
 

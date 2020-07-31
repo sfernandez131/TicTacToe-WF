@@ -5,6 +5,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>TicTacToe_WF</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>fav.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>

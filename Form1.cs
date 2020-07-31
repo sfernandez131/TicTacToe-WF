@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Media;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using TicTacToe_WF.Properties;
 
 namespace TicTacToe_WF
 {
@@ -16,11 +9,21 @@ namespace TicTacToe_WF
     {
         public static SoundPlayer Player = new SoundPlayer();
         private PictureBox pictureBox1;
-        private Button startButton;
+        public Button startButton;
+        public Button topLeftBtn;
+        public Button topMiddleBtn;
+        public Button topRightBtn;
+        public Button middleRightBtn;
+        public Button bottomRightBtn;
+        public Button bottomMiddleBtn;
+        public Button centerBtn;
+        public Button middleLeftBtn;
+        public Button bottomLeftBtn;
 
         public Form1()
         {
             InitializeComponent();
+
             topLeftBtn.Visible = false;
             topMiddleBtn.Visible = false;
             topLeftBtn.Visible = false;
@@ -42,7 +45,7 @@ namespace TicTacToe_WF
         {
             try
             {
-                Player.SoundLocation = "theme.wav";
+                Player.SoundLocation = @"C:\Windows\Media\Alarm02.wav";
                 Player.PlayLooping();
             }
             catch (Exception ex)
@@ -66,46 +69,6 @@ namespace TicTacToe_WF
             bottomMiddleBtn.Visible = true;
             bottomRightBtn.Visible = true;
             Player.Stop();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void topMiddleBtn_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void topRightBtn_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void middleRightBtn_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void centerBtn_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void bottomMiddleBtn_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void bottomRightBtn_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void bottomLeftBtn_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void middleLeftBtn_Click(object sender, EventArgs e)
-        {
         }
     }
 }

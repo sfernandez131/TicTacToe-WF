@@ -1,18 +1,20 @@
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
 
 namespace TicTacToe_WF
 {
-    static class Program
+    public class Program : Form1
     {
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        private static void Main()
         {
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
