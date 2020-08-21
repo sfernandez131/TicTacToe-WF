@@ -66,11 +66,12 @@ namespace TicTacToe_WF
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Black;
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(755, 553);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Tag = "topLeftBtn";
@@ -93,6 +94,7 @@ namespace TicTacToe_WF
             // topLeftBtn
             // 
             this.topLeftBtn.BackColor = System.Drawing.Color.Black;
+            this.topLeftBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.topLeftBtn.FlatAppearance.BorderSize = 0;
             this.topLeftBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.topLeftBtn.Location = new System.Drawing.Point(48, 40);
@@ -106,6 +108,7 @@ namespace TicTacToe_WF
             // topMiddleBtn
             // 
             this.topMiddleBtn.BackColor = System.Drawing.Color.Black;
+            this.topMiddleBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.topMiddleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.topMiddleBtn.Location = new System.Drawing.Point(209, 40);
             this.topMiddleBtn.Name = "topMiddleBtn";
@@ -117,8 +120,9 @@ namespace TicTacToe_WF
             // topRightBtn
             // 
             this.topRightBtn.BackColor = System.Drawing.Color.Black;
+            this.topRightBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.topRightBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.topRightBtn.Location = new System.Drawing.Point(528, 40);
+            this.topRightBtn.Location = new System.Drawing.Point(537, 40);
             this.topRightBtn.Name = "topRightBtn";
             this.topRightBtn.Size = new System.Drawing.Size(168, 144);
             this.topRightBtn.TabIndex = 4;
@@ -128,10 +132,11 @@ namespace TicTacToe_WF
             // middleRightBtn
             // 
             this.middleRightBtn.BackColor = System.Drawing.Color.Black;
+            this.middleRightBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.middleRightBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.middleRightBtn.Location = new System.Drawing.Point(528, 190);
+            this.middleRightBtn.Location = new System.Drawing.Point(537, 199);
             this.middleRightBtn.Name = "middleRightBtn";
-            this.middleRightBtn.Size = new System.Drawing.Size(168, 154);
+            this.middleRightBtn.Size = new System.Drawing.Size(168, 136);
             this.middleRightBtn.TabIndex = 5;
             this.middleRightBtn.UseVisualStyleBackColor = false;
             this.middleRightBtn.Click += new System.EventHandler(this.middleRightBtn_Click);
@@ -139,8 +144,9 @@ namespace TicTacToe_WF
             // bottomRightBtn
             // 
             this.bottomRightBtn.BackColor = System.Drawing.Color.Black;
+            this.bottomRightBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.bottomRightBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bottomRightBtn.Location = new System.Drawing.Point(528, 350);
+            this.bottomRightBtn.Location = new System.Drawing.Point(537, 362);
             this.bottomRightBtn.Name = "bottomRightBtn";
             this.bottomRightBtn.Size = new System.Drawing.Size(168, 117);
             this.bottomRightBtn.TabIndex = 7;
@@ -150,8 +156,9 @@ namespace TicTacToe_WF
             // bottomMiddleBtn
             // 
             this.bottomMiddleBtn.BackColor = System.Drawing.Color.Black;
+            this.bottomMiddleBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.bottomMiddleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bottomMiddleBtn.Location = new System.Drawing.Point(209, 350);
+            this.bottomMiddleBtn.Location = new System.Drawing.Point(209, 362);
             this.bottomMiddleBtn.Name = "bottomMiddleBtn";
             this.bottomMiddleBtn.Size = new System.Drawing.Size(313, 117);
             this.bottomMiddleBtn.TabIndex = 8;
@@ -161,10 +168,11 @@ namespace TicTacToe_WF
             // centerBtn
             // 
             this.centerBtn.BackColor = System.Drawing.Color.Black;
+            this.centerBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.centerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.centerBtn.Location = new System.Drawing.Point(209, 190);
+            this.centerBtn.Location = new System.Drawing.Point(209, 199);
             this.centerBtn.Name = "centerBtn";
-            this.centerBtn.Size = new System.Drawing.Size(313, 154);
+            this.centerBtn.Size = new System.Drawing.Size(313, 145);
             this.centerBtn.TabIndex = 9;
             this.centerBtn.UseVisualStyleBackColor = false;
             this.centerBtn.Click += new System.EventHandler(this.centerBtn_Click);
@@ -172,10 +180,11 @@ namespace TicTacToe_WF
             // middleLeftBtn
             // 
             this.middleLeftBtn.BackColor = System.Drawing.Color.Black;
+            this.middleLeftBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.middleLeftBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.middleLeftBtn.Location = new System.Drawing.Point(48, 190);
+            this.middleLeftBtn.Location = new System.Drawing.Point(48, 199);
             this.middleLeftBtn.Name = "middleLeftBtn";
-            this.middleLeftBtn.Size = new System.Drawing.Size(155, 154);
+            this.middleLeftBtn.Size = new System.Drawing.Size(155, 145);
             this.middleLeftBtn.TabIndex = 10;
             this.middleLeftBtn.UseVisualStyleBackColor = false;
             this.middleLeftBtn.Click += new System.EventHandler(this.middleLeftBtn_Click);
@@ -183,10 +192,11 @@ namespace TicTacToe_WF
             // bottomLeftBtn
             // 
             this.bottomLeftBtn.BackColor = System.Drawing.Color.Black;
+            this.bottomLeftBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.bottomLeftBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bottomLeftBtn.Location = new System.Drawing.Point(48, 350);
+            this.bottomLeftBtn.Location = new System.Drawing.Point(48, 362);
             this.bottomLeftBtn.Name = "bottomLeftBtn";
-            this.bottomLeftBtn.Size = new System.Drawing.Size(155, 117);
+            this.bottomLeftBtn.Size = new System.Drawing.Size(155, 105);
             this.bottomLeftBtn.TabIndex = 11;
             this.bottomLeftBtn.UseVisualStyleBackColor = false;
             this.bottomLeftBtn.Click += new System.EventHandler(this.bottomLeftBtn_Click);
@@ -195,6 +205,8 @@ namespace TicTacToe_WF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(755, 553);
             this.Controls.Add(this.bottomLeftBtn);
             this.Controls.Add(this.middleLeftBtn);
@@ -208,11 +220,12 @@ namespace TicTacToe_WF
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.pictureBox1);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(773, 600);
             this.MinimumSize = new System.Drawing.Size(773, 600);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "TicTacToe-WF";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -739,18 +752,274 @@ namespace TicTacToe_WF
             return image;
         }
 
-        #endregion
+        public static void AI()
+        {
+            BoardScan[] scan = new BoardScan[]
+            {
+                // Bottom Row
+                new BoardScan()
+                {
+                    // 1a
+                    occ = vBoard[0,0,0],
+                    playerTile = vBoard[0,0,1],
+                    id = 1
+                },
 
-        //public Button topLeftBtn { get; set; }
-        //public Button topMiddleBtn { get; set; }
-        //public Button topRightBtn { get; set; }
-        //public Button middleRightBtn { get; set; }
-        //public Button bottomRightBtn { get; set; }
-        //public Button bottomMiddleBtn { get; set; }
-        //public Button centerBtn { get; set; }
-        //public Button middleLeftBtn { get; set; }
-        //public Button bottomLeftBtn { get; set; }
+                new BoardScan()
+                {
+                    // 2a
+                    occ = vBoard[0,1,0],
+                    playerTile = vBoard[0,1,1],
+                    id = 2
+                },
+
+                new BoardScan()
+                {
+                    // 3a
+                    occ = vBoard[0,2,0],
+                    playerTile = vBoard[0,2,1],
+                    id = 3
+                },
+
+                // Middle Row
+                new BoardScan()
+                {
+                    // 1b
+                    occ = vBoard[1,0,0],
+                    playerTile = vBoard[1,0,1],
+                    id = 4
+                },
+
+                new BoardScan()
+                {
+                    // 2b
+                    occ = vBoard[1,1,0],
+                    playerTile = vBoard[1,1,1],
+                    id = 5
+                },
+
+                new BoardScan()
+                {
+                    // 3b
+                    occ = vBoard[1,2,0],
+                    playerTile = vBoard[1,2,1],
+                    id = 6
+                },
+
+                // Top Row
+                new BoardScan()
+                {
+                    // 1c
+                    occ = vBoard[2,0,0],
+                    playerTile = vBoard[2,0,1],
+                    id = 7
+                },
+
+                new BoardScan()
+                {
+                    // 2c
+                    occ = vBoard[2,1,0],
+                    playerTile = vBoard[2,1,1],
+                    id = 8
+                },
+
+                new BoardScan()
+                {
+                    // 3c
+                    occ = vBoard[2,2,0],
+                    playerTile = vBoard[2,2,1],
+                    id = 9
+                },
+            };
+            
+        }
+
+        #endregion
     }
+
+    /// This class represents a static evaluation function for Tic-Tac-Toe
+    /// The value is computed by summing number of game pieces in the rows, columns, and diagonals 
+    /// for those rows, columns and diagonals that are still winnable
+    /// </summary>
+    public class EvaluationFunction
+    {
+
+        //public EvaluationFunction()
+        //{
+        //}
+
+        ///// <summary>
+        ///// Evaluates the favorability of the current board configuration for maxPiece.  Higher values
+        ///// indicate better configuration for maxPiece
+        ///// </summary>
+        ///// <param name="b">the game board to evaluate</param>
+        ///// <param name="maxPiece">the piece representing MAX</param>
+        ///// <returns></returns>
+        //public double Evaluate(Board b, Board.Pieces maxPiece)
+        //{
+
+        //    if (b.HasWinner())
+        //    {
+        //        if (b.WinningPiece == maxPiece)
+        //            return double.MaxValue;
+        //        else
+        //            return double.MinValue;
+        //    }
+
+        //    double maxValue = EvaluatePiece(b, maxPiece);
+        //    double minValue = EvaluatePiece(b, Board.GetOponentPiece(maxPiece));
+
+        //    return maxValue - minValue;
+
+        //}
+
+        //// sums up all the possible ways to win for the specified board piece
+        //private double EvaluatePiece(Board b, Board.Pieces p)
+        //{
+
+        //    return EvaluateRows(b, p) + EvaluateColumns(b, p) + EvaluateDiagonals(b, p);
+        //}
+
+        //// over all rows sums the number of pieces in the row if 
+        //// the specified piece can still win in that row i.e. the row
+        //// does not contain an opponent's piece
+        //private double EvaluateRows(Board b, Board.Pieces p)
+        //{
+
+        //    int cols = b.Columns;
+        //    int rows = b.Rows;
+
+        //    double score = 0.0;
+        //    int count;
+        //    // check the rows
+        //    for (int i = 0; i < b.Rows; i++)
+        //    {
+        //        count = 0;
+        //        bool rowClean = true;
+        //        for (int j = 0; j < b.Columns; j++)
+        //        {
+        //            Board.Pieces boardPiece = b.GetPieceAtPoint(i, j);
+
+        //            if (boardPiece == p)
+        //                count++;
+        //            else if (boardPiece == Board.GetOponentPiece(p))
+        //            {
+        //                rowClean = false;
+        //                break;
+        //            }
+        //        }
+
+        //        // if we get here then the row is clean (an open row)
+        //        if (rowClean && count != 0)
+        //            score += count;
+        //    }
+
+        //    return score;
+        //}
+
+        //// over all rows sums the number of pieces in the row if 
+        //// the specified piece can still win in that row i.e. the row
+        //// does not contain an opponent's piece
+        //private double EvaluateColumns(Board b, Board.Pieces p)
+        //{
+        //    int cols = b.Columns;
+        //    int rows = b.Rows;
+
+        //    double score = 0.0;
+        //    int count;
+        //    // check the rows
+        //    for (int j = 0; j < b.Columns; j++)
+        //    {
+        //        count = 0;
+        //        bool rowClean = true;
+        //        for (int i = 0; i < b.Columns; i++)
+        //        {
+        //            Board.Pieces boardPiece = b.GetPieceAtPoint(i, j);
+
+        //            if (boardPiece == p)
+        //                count++;
+        //            else if (boardPiece == Board.GetOponentPiece(p))
+        //            {
+        //                rowClean = false;
+        //                break;
+        //            }
+        //        }
+
+        //        // if we get here then the row is clean (an open row)
+        //        if (rowClean && count != 0)
+        //            score += count; //Math.Pow(count, count);
+
+        //    }
+
+        //    return score;
+        //}
+
+        //// over both diagonals sums the number of pieces in the diagonal if 
+        //// the specified piece can still win in that diagonal i.e. the diagonal
+        //// does not contain an opponent's piece
+        //private double EvaluateDiagonals(Board b, Board.Pieces p)
+        //{
+        //    // go down and to the right diagonal first
+        //    int count = 0;
+        //    bool diagonalClean = true;
+
+        //    double score = 0.0;
+
+        //    for (int i = 0; i < b.Columns; i++)
+        //    {
+        //        Board.Pieces boardPiece = b.GetPieceAtPoint(i, i);
+
+        //        if (boardPiece == p)
+        //            count++;
+
+        //        if (boardPiece == Board.GetOponentPiece(p))
+        //        {
+        //            diagonalClean = false;
+        //            break;
+        //        }
+        //    }
+
+        //    if (diagonalClean && count > 0)
+        //        score += count;// Math.Pow(count, count);
+
+        //    // now try the other way
+
+        //    int row = 0;
+        //    int col = 2;
+        //    count = 0;
+        //    diagonalClean = true;
+
+        //    while (row < b.Rows && col >= 0)
+        //    {
+        //        Board.Pieces boardPiece = b.GetPieceAtPoint(row, col);
+
+        //        if (boardPiece == p)
+        //            count++;
+
+        //        if (boardPiece == Board.GetOponentPiece(p))
+        //        {
+        //            diagonalClean = false;
+        //            break;
+        //        }
+
+        //        row++;
+        //        col--;
+        //    }
+
+        //    if (count > 0 && diagonalClean)
+        //        score += count;
+
+        //    return score;
+        //}
+    }
+
+    public class BoardScan
+    {
+        public bool occ { get; set; }
+        public char playerTile { get; set; }
+        public int id { get; set; }
+    }
+
     public class Player
     {
         public bool hasPlayed;
